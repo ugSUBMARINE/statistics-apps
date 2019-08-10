@@ -1,0 +1,44 @@
+.js-plotly-plot .plotly .modebar {
+  padding-top: 5%;
+  margin-right: 3.5%;
+}
+
+.my-border {
+  border: 1px black dashed;
+}
+
+.dcc_control {
+  margin: 0;
+  padding: 10px;
+  padding-top: 0px
+  width: calc(100%-40px);
+}
+
+.control_label {
+  margin: 0;
+/*  padding: 10px; */
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  width: calc(100%-40px);
+}
+
+/* styling the slider */
+.rc-slider {
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-bottom: 20px;
+}
+.rc-slider-track {
+  background-color: #377eb8;
+}
+.rc-slider-handle {
+  border: solid 2px #377eb8;
+}
+.rc-slider-handle-active:active {
+  border-color: #377eb8;
+  box-shadow: 0 0 5px #377eb8;
+}
+.rc-slider-dot-active {
+  border-color: #377eb8;
+}
+
