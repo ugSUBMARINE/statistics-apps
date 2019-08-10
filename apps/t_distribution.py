@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
@@ -48,7 +47,7 @@ header = html.Div([
     html.Div([
         html.A(
             html.Img(
-                src='/assets/gammaturn.png',
+                src='/assets/icons8-return-96.png',
                 style={'height': '50px',
                        'margin-right': '16px'}
             ),
@@ -65,13 +64,13 @@ cdf_display = dcc.Graph(id='tdist-cdf-display')
 slider = html.Div([
 
     html.P("""
-    The normal distribution is a symmetric continuous distribution and is defined by two parameters
-    (\u03BC and \u03C3). The mean value \u03BC represents the location of the maximum
-    and the standard deviation \u03C3 the width of the distribution. The so called 'standard normal
-    distribution' (red dashed line) is a special case with \u03BC=0 and \u03C3=1.
+    Similar to the normal distribution, the t-distribution is symmetric and bell-shaped, but with heavier tails. It
+    is defined by one parameter, the degrees of freedom \u03BD. With larger \u03BD the t-distribution resembles more
+    and more a standard normal distribution. It is the central distribution for performing t-tests or estimating
+    confidence intervals of sample means. 
     """),
 
-    html.P('Use the slider to set the degrees of freedom:',
+    html.P('Use the slider to set \u03BD:',
            className="control_label"),
 
     dcc.Slider(
@@ -116,7 +115,7 @@ def create_cdf(dof):
         x=x,
         y=cdfs[dof],  # scipy.stats.t.cdf(x, dof),
         mode='lines',
-        name='t-distribution<br>(dof={:d})'.format(dof),
+        name='t-distribution<br>(\u03BD={:d})'.format(dof),
         showlegend=True,
         line={'dash': 'solid', 'width': 3}
     )
@@ -145,7 +144,7 @@ def create_pdf(dof, clickdata):
         x=x,
         y=pdfs[dof],  # scipy.stats.t.pdf(x, dof),
         mode='lines',
-        name='t-distribution<br>(dof={:d})'.format(dof),
+        name='t-distribution<br>(\u03BD={:d})'.format(dof),
         showlegend=True,
         line={'dash': 'solid', 'width': 3}
     )

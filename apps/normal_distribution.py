@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
@@ -48,7 +47,7 @@ header = html.Div([
     html.Div([
         html.A(
             html.Img(
-                src='/assets/gammaturn.png',
+                src='/assets/icons8-return-96.png',
                 style={'height': '50px',
                        'margin-right': '16px'}
             ),
