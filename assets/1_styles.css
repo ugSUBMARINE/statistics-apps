@@ -1,6 +1,6 @@
 .js-plotly-plot .plotly .modebar {
-  padding-top: 5%;
-  margin-right: 3.5%;
+  /* padding-top: 7.5%; */
+  /* margin-right: 0%; */
 }
 
 .my-border {
@@ -8,25 +8,17 @@
 }
 
 .dcc_control {
-  margin: 0;
-  padding: 10px;
-  padding-top: 0px
-  width: calc(100%-40px);
+  margin-left: 10px;
+  width: calc(100% - 20px);
 }
 
 .control_label {
-  margin: 0;
-/*  padding: 10px; */
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-  width: calc(100%-40px);
+  margin-bottom: 5px;
 }
 
 /* styling the slider */
 .rc-slider {
-  margin-left: 0px;
-  padding-left: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .rc-slider-track {
   background-color: #377eb8;

@@ -9,6 +9,7 @@ import numpy as np
 import scipy.stats
 
 from app import app
+from apps.commons import gen_header, pdf_layout, cdf_layout, gen_dist_layout
 
 # global variables
 x_max = 5.
@@ -39,22 +40,7 @@ cdf_std = go.Scatter(
 
 # components of the app
 # header text plus logo
-header = html.Div([
-    html.Div([
-        html.H2('Normal Distribution', style={'margin-left': '16px'})
-    ], className='w3-display-left'),
-
-    html.Div([
-        html.A(
-            html.Img(
-                src='/assets/icons8-return-96.png',
-                style={'height': '50px',
-                       'margin-right': '16px'}
-            ),
-            href="/toc"
-        )
-    ], className='w3-display-right')
-], className='w3-display-container', style={'height': '60px'})
+header = gen_header('Normal Distribution', logo='/assets/icons8-return-96.png', href='/toc')
 
 # Plotly figures
 pdf_display = dcc.Graph(id='normal-pdf-display')
@@ -88,22 +74,7 @@ slider = html.Div([
 
 ], className="w3-container w3-col w3-mobile w3-padding", style={'width': '25%'})
 
-layout = html.Div([
-
-    html.Div(header, className='w3-row'),
-
-    html.Div([
-        slider,
-        html.Div([
-            pdf_display
-        ], className='w3-container w3-col w3-mobile w3-padding', style={'width': '37.5%'}),
-        html.Div([
-            cdf_display
-        ], className='w3-container w3-col w3-mobile w3-padding', style={'width': '37.5%'})
-    ], className='w3-row'),
-
-], className='w3-container w3-padding'
-)
+layout = gen_dist_layout(header, slider, pdf_display, cdf_display)
 
 
 @app.callback(
@@ -120,18 +91,7 @@ def create_cdf(sigma):
         line={'dash': 'solid', 'width': 3}
     )
 
-    return go.Figure(data=[cdf_std, cdf_var],
-                     layout={
-                         'xaxis': {'title': {'text': 'random variable'}},
-                         'yaxis': {'title': {'text': 'cdf'}},
-                         'margin': {'t': 60, 'b': 20, 'l': 10, 'r': 10},
-                         'template': 'ggplot2',
-                         'colorway': ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3',
-                                      '#ff7f00', '#ffff33', '#a65628', '#f781bf',
-                                      '#999999'],
-                         'legend': {'xanchor': 'right', 'yanchor': 'bottom', 'x': 1, 'y': 0.05},
-                         'title': go.layout.Title(text="Cumulative distribution function", xref="paper", x=0)
-                     })
+    return go.Figure(data=[cdf_std, cdf_var], layout=cdf_layout)
 
 
 @app.callback(
@@ -166,18 +126,7 @@ def create_pdf(sigma, clickdata):
                 hoverinfo='text'
             ))
 
-    return go.Figure(data=data,
-                     layout={
-                         'xaxis': {'title': {'text': 'random variable'}},
-                         'yaxis': {'title': {'text': 'pdf'}},
-                         'margin': {'t': 60, 'b': 20, 'l': 10, 'r': 10},
-                         'template': 'ggplot2',
-                         'colorway': ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3',
-                                      '#ff7f00', '#ffff33', '#a65628', '#f781bf',
-                                      '#999999'],
-                         'legend': {'xanchor': 'right', 'yanchor': 'top', 'x': 1, 'y': 1},
-                         'title': go.layout.Title(text="Probability density function", xref="paper", x=0)
-                     })
+    return go.Figure(data=data, layout=pdf_layout)
 
 
 if __name__ == '__main__':

@@ -17,4 +17,3 @@ app.title = "Biostatistics"
 app.config.suppress_callback_exceptions = True
 app.css.config.serve_locally = True
 app.scripts.config.serve_locally = True
-
