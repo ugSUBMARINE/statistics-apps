@@ -28,7 +28,7 @@ fig_display = dcc.Graph(id='fig-display')
 sliders = [
     # delta_mu
     html.Div([
-        html.P('set \u0394\u03BC:', className="control_label"),
+        html.Label('set \u0394\u03BC:', className="control_label"),
         dcc.Slider(id='delta-mu',
                    min=0., max=5., step=0.2, value=2.0,
                    marks={i: '{:.1f}'.format(i) for i in range(0, 6)},
@@ -37,7 +37,7 @@ sliders = [
 
     # sigma_1
     html.Div([
-        html.P('set \u03C3\u2081:', className="control_label"),
+        html.Label('set \u03C3\u2081:', className="control_label"),
         dcc.Slider(id='sigma-1',
                    min=0.5, max=2.0, step=0.1, value=1.,
                    marks={0.5: '0.5', 1: '1.0', 1.5: '1.5', 2: '2.0'},
@@ -46,7 +46,7 @@ sliders = [
 
     # sigma_2
     html.Div([
-        html.P('set \u03C3\u2082:', className="control_label"),
+        html.Label('set \u03C3\u2082:', className="control_label"),
         dcc.Slider(id='sigma-2',
                    min=0.5, max=2.0, step=0.1, value=1.,
                    marks={0.5: '0.5', 1: '1.0', 1.5: '1.5', 2: '2.0'},

@@ -4,7 +4,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-from apps import toc, normal_distribution, t_distribution, cohen_d
+from apps import (toc, normal_distribution, t_distribution, cohen_d, diagnostic_tests)
 
 server = app.server
 
@@ -25,6 +25,8 @@ def display_page(pathname):
         return t_distribution.layout
     elif pathname == '/cohen_d':
         return cohen_d.layout
+    elif pathname == '/diagnostic_tests':
+        return diagnostic_tests.layout
     else:
         return "404"
 

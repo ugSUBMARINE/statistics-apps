@@ -16,7 +16,8 @@ layout = html.Div([
     html.Div([
         html.A(html.H3("Normal Distribution"), href="/normal_distribution"),
         html.A(html.H3("t-Distribution"), href="/t_distribution"),
-        html.A(html.H3("Cohen's d-value"), href="/cohen_d")
+        html.A(html.H3("Cohen's d-value"), href="/cohen_d"),
+        html.A(html.H3("Diagnostic tests"), href="/diagnostic_tests")
     ], className='w3-container w3-padding'),
 
 ], className='w3-container w3-padding'
