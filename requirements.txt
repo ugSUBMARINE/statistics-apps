@@ -4,8 +4,8 @@ dash-core-components==1.1.1
 dash-html-components==1.0.0
 dash-renderer==1.0.0
 dash-table==4.1.0
-Flask==1.1.1
-Flask-Compress==1.4.0
+Flask
+Flask-Compress
 gunicorn==19.9.0
 itsdangerous==1.1.0
 Jinja2==2.11.3
